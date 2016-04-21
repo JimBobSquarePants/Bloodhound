@@ -1,6 +1,6 @@
 # Our.Umbraco.Bloodhound
 
-<img height="100" src="docs/bloodhound.png" style="margin-bottom: 20px" alt="Bloodhound logo">
+<img height="150" src="docs/bloodhound.png" style="margin-bottom: 20px" alt="Bloodhound logo">
 
 Bloodhound is an Umbraco package designed to track when pages are moved within an Umbraco CMS instance. 
 
@@ -22,7 +22,7 @@ Since all the data is stored with the content node, no additional database table
 This `IContentFinder` implementation sits in the last position before the `ContentFinderByNotFoundHandlers` and will attempt to associate the url request to a content node when all other finders
 have failed. This ensures that normal requests are not intercepted and interfered with.
 
-<img height="100" src="docs/screenshot.png" style="margin-bottom: 20px" alt="Bloodhound screenshot">
+<img height="500" src="docs/screenshot.png" style="margin-bottom: 20px" alt="Bloodhound screenshot">
 
 
 The login for the backoffice is:
