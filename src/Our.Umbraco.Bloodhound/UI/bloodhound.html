@@ -1,0 +1,92 @@
+﻿<div ng-controller="Our.Umbraco.Bloodhound" class="bloodhound-editor">
+    <!--TODO: Write Everything-->
+    <div class="control-group">
+        <div ng-show="model.value.length > 0">
+            <p>Existing Redirects</p>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Rewrite Url</th>
+                        <th>Is Regex</th>
+                        <th>Status Code</th>
+                        <th>Created Date UTC</th>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="val in model.value" ng-include="getTemplate($index)"></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Add New Redirect</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Rewrite Url</th>
+                    <th>Is Regex</th>
+                    <th>Status Code</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" ng-model="rewriteUrl" /></td>
+                    <td><input type="checkbox" ng-model="isRegex" /></td>
+                    <td>
+                        <select ng-model="statusCode">
+                            <option value="301">301</option>
+                            <option value="302">302</option>
+                        </select>
+                    </td>
+                    <td></td>
+                    <td>
+                        <button type="button" class="btn" ng-click="add()">
+                            <localize key="general_add">Add</localize>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script type="text/ng-template" id="display">
+    <td ng-if="val.isRegex === false"><a href="{{val.rewriteUrl}}" target="_blank">{{val.rewriteUrl}}</a></td>
+    <td ng-if="val.isRegex">{{val.rewriteUrl}}</td>
+    <td>{{val.isRegex}}</td>
+    <td>{{val.statusCode}}</td>
+    <td>{{val.createdDateUtc}}</td>
+    <td>
+        <div class="btn-group">
+            <button type="button" class="btn" ng-click="edit($index)">
+                <localize key="general_edit">Edit</localize>
+            </button>
+            <button type="button" class="btn btn-danger" ng-click="delete($index)">
+                <localize key="general_delete">Delete</localize>
+            </button>
+        </div>
+    </td>
+</script>
+
+<script type="text/ng-template" id="edit">
+    <td><input type="text" ng-model="selected.rewriteUrl" /></td>
+    <td><input type="checkbox" ng-model="selected.isRegex" /></td>
+    <td>
+        <select ng-model="selected.statusCode">
+            <option value="301">301</option>
+            <option value="302">302</option>
+        </select>
+    </td>
+    <td>{{selected.createdDateUtc}}</td>
+    <td>
+        <div class="btn-group">
+            <button type="button" class="btn" ng-click="update($index)">
+                <localize key="general_update">Update</localize>
+            </button>
+            <button type="button" class="btn" ng-click="reset()">
+                <localize key="general_cancel">Cancel</localize>
+            </button>
+        </div>
+    </td>
+</script>

@@ -1,0 +1,34 @@
+﻿/* Ensure table resizes with pane */
+.bloodhound-editor table {
+    max-width: 100%;
+}
+
+/* Make the table stand out */
+.bloodhound-editor .table-striped {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .05);
+    border-collapse: separate;
+    border: 1px solid #d3d3d3;
+}
+
+    /* Add alternate stripes */
+    .bloodhound-editor .table-striped tbody > tr:nth-child(odd) > td,
+    .bloodhound-editor .table-striped tbody > tr:nth-child(odd) > th {
+        background-color: #f8f8f8;
+    }
+
+/* Aesthetics */
+.bloodhound-editor .table a {
+    text-decoration: underline;
+}
+
+.bloodhound-editor .table tbody > tr > td:last-child {
+    width: 145px;
+}
+
+.bloodhound-editor table input[type="text"] {
+    width: 90%;
+}
+
+.bloodhound-editor table select {
+    width: 62px;
+}
